@@ -313,7 +313,7 @@ function ProductList({ onHomeClick }) {
             cursor: addedToCart[plant.name] ? 'not-allowed' : 'pointer'
           }}
           >
-            {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}
+            {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}
           </button>
 
         </div>
