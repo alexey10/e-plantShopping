@@ -15,6 +15,10 @@ function App() {
   const handleHomeClick = () => {
     setShowProductList(false);
   };
+  const handleContinueShopping = () => {
+  setShowProductList(true);
+  };
+
 
   return (
     <div className="app-container">
@@ -37,7 +41,8 @@ function App() {
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList onHomeClick={handleHomeClick}/>
+        <ProductList onHomeClick={handleHomeClick} onContinueShopping={handleContinueShopping}/>
+        
       </div>
     </div>
   );

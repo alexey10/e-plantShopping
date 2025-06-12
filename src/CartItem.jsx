@@ -20,7 +20,9 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleContinueShopping = () => {
-    if (onContinueShopping) onContinueShopping(e);
+  if (typeof onContinueShopping === 'function') {
+    onContinueShopping();
+   }
   };
 
   const handleIncrement = (item) => {
@@ -57,7 +59,7 @@ const CartItem = ({ onContinueShopping }) => {
               <div className="cart-item-cost">${parseCost(item.cost).toFixed(2)}</div>
               <div className="cart-item-quantity">
                 <button className="cart-item-button cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                <span className="cart-item-quantity-value">{item.quantity}</span>
+                <span className="cart-item-quantity-value">{item.quantity ?? 1}</span>
                 <button className="cart-item-button cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
               <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
@@ -67,7 +69,7 @@ const CartItem = ({ onContinueShopping }) => {
         ))}
       </div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={handleContinueShopping}>Continue Shopping</button>
+        <button className="get-started-button" onClick={onContinueShopping}>Continue Shopping</button>
         <br />
         <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
